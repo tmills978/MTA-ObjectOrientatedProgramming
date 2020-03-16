@@ -12,6 +12,7 @@ namespace ObjectOrientatedProgramming
 {
     public partial class Form1 : Form
     {
+        BankAccount account1 = new BankAccount("Tom Mills");
         public Form1()
         {
             InitializeComponent();
@@ -24,24 +25,26 @@ namespace ObjectOrientatedProgramming
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            //BankAccount account1 = new BankAccount("Tom Mills");
-            BankAccount account1 = new BankAccount();
+            
+            //account1 = new BankAccount();
             label2.Text = "Account created in the name of " + account1.GetAccount();
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-
+            decimal cash = Convert.ToDecimal(textBox1.Text);
+            account1.Withdraw(cash);
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-
+            label2.Text = account1.Statement();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-
+            decimal cash = Convert.ToDecimal(textBox1.Text);
+            account1.Deposit(cash);
         }
 
         private void Form1_Load(object sender, EventArgs e)
